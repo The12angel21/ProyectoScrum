@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.infraestructure.rest.controller;
+package com.cmepps.listatareas.infraestructure.ui_driver_adapter_rest.controller;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.infraestructure.rest.configuration;
+package com.cmepps.listatareas.infraestructure.ui_driver_adapter_rest.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

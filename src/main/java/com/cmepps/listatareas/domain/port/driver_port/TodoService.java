@@ -7,15 +7,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cmepps.listatareas.domain.port.driven_port.TodoRepository;
 import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
+import com.cmepps.listatareas.infraestructure.driven_adapter.repository.TodoJpaRepository;
 
 
 @Service
 public class TodoService implements ITodoService {
 
     @Autowired
-    private TodoRepository todoRepository;
+    private TodoJpaRepository todoRepository;
 
     @Override
     public List < TodoEntity > getTodosByUser(String user) {
