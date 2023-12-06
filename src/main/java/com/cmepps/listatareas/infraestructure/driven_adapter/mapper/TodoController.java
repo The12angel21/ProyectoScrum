@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.NoHexagonal.controller;
+package com.cmepps.listatareas.infraestructure.driven_adapter.mapper;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cmepps.listatareas.NoHexagonal.model.Todo;
-import com.cmepps.listatareas.NoHexagonal.service.ITodoService;
+import com.cmepps.listatareas.domain.port.driver_port.ITodoService;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
 
+/**
+ * esta clase es un driver_Adapter
+ */
 @Controller
 public class TodoController {
 
@@ -53,7 +56,7 @@ public class TodoController {
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
-        model.addAttribute("todo", new Todo());
+        model.addAttribute("todo", new TodoEntity());
         return "todo";
     }
 
@@ -66,13 +69,13 @@ public class TodoController {
 
     @RequestMapping(value = "/update-todo", method = RequestMethod.GET)
     public String showUpdateTodoPage(@RequestParam long id, ModelMap model) {
-        Todo todo = todoService.getTodoById(id).get();
+        TodoEntity todo = todoService.getTodoById(id).get();
         model.put("todo", todo);
         return "todo";
     }
 
     @RequestMapping(value = "/update-todo", method = RequestMethod.POST)
-    public String updateTodo(ModelMap model, @Validated Todo todo, BindingResult result) {
+    public String updateTodo(ModelMap model, @Validated TodoEntity todo, BindingResult result) {
 
         if (result.hasErrors()) {
             return "todo";
@@ -84,7 +87,7 @@ public class TodoController {
     }
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
-    public String addTodo(ModelMap model, @Validated Todo todo, BindingResult result) {
+    public String addTodo(ModelMap model, @Validated TodoEntity todo, BindingResult result) {
 
         if (result.hasErrors()) {
             return "todo";

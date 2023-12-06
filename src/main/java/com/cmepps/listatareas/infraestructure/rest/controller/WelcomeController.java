@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.NoHexagonal.controller;
+package com.cmepps.listatareas.infraestructure.rest.controller;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.NoHexagonal.model;
+package com.cmepps.listatareas.infraestructure.driven_adapter.entity;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "todos")
-public class Todo {
+public class TodoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,11 +26,11 @@ public class Todo {
     private String prioridad;
     private String estado;
 
-    public Todo() {
+    public TodoEntity() {
         super();
     }
 
-    public Todo(String user, String desc, Date targetDate, boolean isDone, String name, String tip, String asig, String dur, String pri) {
+    public TodoEntity(String user, String desc, Date targetDate, boolean isDone, String name, String tip, String asig, String dur, String pri) {
         super();
         this.userName = user;
         this.description = desc;

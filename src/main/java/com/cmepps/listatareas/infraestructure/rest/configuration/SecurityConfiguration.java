@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.NoHexagonal.security;
+package com.cmepps.listatareas.infraestructure.rest.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.NoHexagonal.controller;
+package com.cmepps.listatareas.infraestructure.rest.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

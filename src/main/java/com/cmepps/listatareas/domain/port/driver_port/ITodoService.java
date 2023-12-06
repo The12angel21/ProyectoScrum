@@ -1,24 +1,28 @@
-package com.cmepps.listatareas.NoHexagonal.service;
+package com.cmepps.listatareas.domain.port.driver_port;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.cmepps.listatareas.NoHexagonal.model.Todo;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
 
+
+/**
+ * esto es un driver port
+ */
 public interface ITodoService {
 
-    List < Todo > getTodosByUser(String user);
+    List < TodoEntity > getTodosByUser(String user);
 
-    Optional < Todo > getTodoById(long id);
+    Optional < TodoEntity > getTodoById(long id);
 
-    void updateTodo(Todo todo);
+    void updateTodo(TodoEntity todo);
 
     //void addTodo(String name, String desc, Date targetDate, boolean isDone);
 
     void deleteTodo(long id);
 
-    void saveTodo(Todo todo);
+    void saveTodo(TodoEntity todo);
 
 	void addTodo(String name, String desc, Date targetDate, boolean isDone, String nameasig, String tip, String asig,
 			String dur, String pri);

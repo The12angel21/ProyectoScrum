@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.NoHexagonal.service;
+package com.cmepps.listatareas.domain.port.driver_port;
 
 import java.util.Date;
 import java.util.List;
@@ -7,8 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cmepps.listatareas.NoHexagonal.model.Todo;
-import com.cmepps.listatareas.NoHexagonal.repository.TodoRepository;
+import com.cmepps.listatareas.domain.port.driven_port.TodoRepository;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
+
 
 @Service
 public class TodoService implements ITodoService {
@@ -17,36 +18,36 @@ public class TodoService implements ITodoService {
     private TodoRepository todoRepository;
 
     @Override
-    public List < Todo > getTodosByUser(String user) {
+    public List < TodoEntity > getTodosByUser(String user) {
         return todoRepository.findByUserName(user);
     }
 
     @Override
-    public Optional < Todo > getTodoById(long id) {
+    public Optional < TodoEntity > getTodoById(long id) {
         return todoRepository.findById(id);
     }
 
     @Override
-    public void updateTodo(Todo todo) {
+    public void updateTodo(TodoEntity todo) {
         todoRepository.save(todo);
     }
 
     @Override
     public void addTodo(String name, String desc, Date targetDate, boolean isDone, String nameasig, String tip, String asig, String dur, String pri) {
-        todoRepository.save(new Todo(name, desc, targetDate, isDone, nameasig, tip, asig, dur, pri));
+        todoRepository.save(new TodoEntity(name, desc, targetDate, isDone, nameasig, tip, asig, dur, pri));
         
     }
 
     @Override
     public void deleteTodo(long id) {
-        Optional < Todo > todo = todoRepository.findById(id);
+        Optional < TodoEntity > todo = todoRepository.findById(id);
         if (todo.isPresent()) {
             todoRepository.delete(todo.get());
         }
     }
 
     @Override
-    public void saveTodo(Todo todo) {
+    public void saveTodo(TodoEntity todo) {
         todoRepository.save(todo);
     }
 }
