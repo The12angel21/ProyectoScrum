@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.model;
+package com.cmepps.listatareas.NoHexagonal.model;
 
 import java.util.Date;
 

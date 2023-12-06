@@ -1,4 +1,4 @@
-package com.cmepps.listatareas.controller;
+package com.cmepps.listatareas.NoHexagonal.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cmepps.listatareas.service.AsignaturaService;
+import com.cmepps.listatareas.NoHexagonal.service.AsignaturaService;
 
 @Controller
 public class AsignaturaController {

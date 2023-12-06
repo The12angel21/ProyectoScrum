@@ -1,9 +1,8 @@
-package com.cmepps.listatareas.controller;
+package com.cmepps.listatareas.NoHexagonal.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.cmepps.listatareas.model.Todo;
-import com.cmepps.listatareas.service.PlanificacionService;
+import com.cmepps.listatareas.NoHexagonal.model.Todo;
+import com.cmepps.listatareas.NoHexagonal.service.PlanificacionService;
 
 @Controller
 public class PlanificarController {
