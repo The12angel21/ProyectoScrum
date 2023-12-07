@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cmepps.listatareas.domain.model.Asignatura;
-import com.cmepps.listatareas.infraestructure.driven_adapter.repository.AsignaturaRepository;
+import com.cmepps.listatareas.infraestructure.driven_adapter.repository.AsignaturaJpaRepository;
 
 
 
@@ -16,7 +16,7 @@ import com.cmepps.listatareas.infraestructure.driven_adapter.repository.Asignatu
 @Service
 public class AsignaturaService implements IAsignaturaService{
     	  @Autowired
-    	    private AsignaturaRepository asignaturaRepository;
+    	    private AsignaturaJpaRepository asignaturaRepository;
 
     	  
     	    public boolean agregarAsignatura(String nombre) {/*

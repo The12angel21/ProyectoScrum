@@ -6,6 +6,6 @@ import com.cmepps.listatareas.infraestructure.driven_adapter.entity.AsignaturaEn
 
 
 
-public interface AsignaturaRepository extends JpaRepository <AsignaturaEntity, Long> {
+public interface AsignaturaJpaRepository extends JpaRepository <AsignaturaEntity, Long> {
     List <AsignaturaEntity> findByNombre(String nombre);
 }
