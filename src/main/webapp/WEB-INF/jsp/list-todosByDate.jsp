@@ -3,13 +3,12 @@
 
 <div class="container">
  <div>
-  <a type="button" class="btn btn-primary btn-md" href="/add-todo">Añadir tarea</a>
-   <a type="button" class="btn btn-primary btn-md" href="/list-todosByDate">Ordenar tareas por fecha</a>
+  <a type="button" class="btn btn-primary btn-md" href="/list-todos">Volver</a>
  </div>
  <br>
  <div class="panel panel-primary">
   <div class="panel-heading">
-   <h3>Lista de tareas</h3>
+   <h3>Lista de tareas ordenadas por fecha</h3>
   </div>
   <div class="panel-body">
    <table class="table table-striped">

@@ -13,7 +13,8 @@ import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
 public interface ITodoService {
 
     List < TodoEntity > getTodosByUser(String user);
-
+    List <TodoEntity> getTodosByDate(Date targetDate);
+    
     Optional < TodoEntity > getTodoById(long id);
 
     void updateTodo(TodoEntity todo);
@@ -26,4 +27,6 @@ public interface ITodoService {
 
 	void addTodo(String name, String desc, Date targetDate, boolean isDone, String nameasig, String tip, String asig,
 			String dur, String pri);
+	
+
 }
