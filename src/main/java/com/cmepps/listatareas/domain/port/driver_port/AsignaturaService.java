@@ -18,7 +18,7 @@ public class AsignaturaService implements IAsignaturaService{
     	  @Autowired
     	    private AsignaturaJpaRepository asignaturaRepository;
 
-    	  
+    	  	@Override
     	    public boolean agregarAsignatura(String nombre) {/*
     	        if (asignaturaRepository.findByNombre(nombre).EstaEnLaLista()) {
     	            																	// La asignatura ya existe, mostrar mensaje de error o lanzar excepción

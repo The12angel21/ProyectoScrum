@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cmepps.listatareas.domain.model.Todo;
 import com.cmepps.listatareas.domain.port.driver_port.PlanificacionService;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
 
 
 
@@ -29,7 +30,7 @@ public class PlanificarController {
 
 	@RequestMapping(value = "/planificar-tareas", method = RequestMethod.POST)
     public String planificarTareas(ModelMap model) {
-        List<Todo> tareasPlanificadas = planiService.planificarTareas();
+        List<TodoEntity> tareasPlanificadas = planiService.planificarTareas();
         model.addAttribute("tareas", tareasPlanificadas);
         return "planificacion-tareas"; // Página para visualizar tareas planificadas
     }

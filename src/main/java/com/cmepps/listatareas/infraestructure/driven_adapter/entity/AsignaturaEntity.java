@@ -9,7 +9,7 @@ import javax.persistence.*;
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 
-	    @Column(name = "nombre asignatura")
+	    @Column(name = "nombre_asignatura")
 	    private String nombre;
 
 		public AsignaturaEntity(String nombre) {

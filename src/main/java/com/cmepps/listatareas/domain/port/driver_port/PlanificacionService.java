@@ -7,21 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cmepps.listatareas.domain.model.Todo;
-import com.cmepps.listatareas.domain.port.driven_port.TodoRepository;
+import com.cmepps.listatareas.domain.port.driven_port.*;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
+import com.cmepps.listatareas.infraestructure.driven_adapter.repository.TodoJpaRepository;
 
 
 
 @Service
 public class PlanificacionService implements IPlanificacionService{
 	@Autowired
-    private TodoRepository tareaRepository;
-
-    public List<Todo> planificarTareas() {
-    	List<Todo> Ordenado = null;
+    private TodoJpaRepository tareaRepository;
+	
+	@Override
+    public List<TodoEntity> planificarTareas() {
+    	List<TodoEntity> Ordenado = null;
         // Lógica de planificación aquí (ordenar por fecha y prioridad)
         return Ordenado;
     }
 
+	@Override
     public void manejarConflicto(Todo tareaNueva) {
         // Lógica para manejar conflictos de horarios y prioridades
         // Puedes preguntar al usuario cuál tarea mantener en caso de conflicto

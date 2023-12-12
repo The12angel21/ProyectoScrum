@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cmepps.listatareas.domain.model.Todo;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
 
 
 
 public interface IPlanificacionService {
 
-	public List<Todo> planificarTareas();
+	public List<TodoEntity> planificarTareas();
 
 	public void manejarConflicto(Todo tareaNueva);
 
