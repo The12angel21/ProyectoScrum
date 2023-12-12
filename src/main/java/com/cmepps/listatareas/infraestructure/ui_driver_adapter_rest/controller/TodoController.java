@@ -44,6 +44,14 @@ public class TodoController {
         return "list-todos";
     }
 
+    @RequestMapping(value = "/list-todosByDate", method = RequestMethod.GET)
+    public String showTodosByDate(ModelMap model) {
+        String name = getLoggedInUserName(model);
+        model.put("todos", todoService.getTodosByUser(name));
+        // model.put("todos", service.retrieveTodos(name));
+        return "list-todosByDate";
+    }
+    
     private String getLoggedInUserName(ModelMap model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

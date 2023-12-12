@@ -7,7 +7,7 @@
           <li class="active"><a href="/">Pagina principal</a></li>
           <li><a href="/list-todos">Tareas</a></li>
           <li><a href="/formulario-asignatura">Asignaturas</a></li>
-          <li><a href="/list-todos">Calendario</a></li>
+          <li><a href="/calendar">Calendario</a></li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
          <li><a href="/logout">Cerrar sesión</a></li>
