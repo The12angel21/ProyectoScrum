@@ -50,9 +50,4 @@ public class TodoService implements ITodoService {
     public void saveTodo(TodoEntity todo) {
         todoRepository.save(todo);
     }
-
-	@Override
-	public List<TodoEntity> getTodosByDate(Date targetDate) {
-        return todoRepository.getTodosByDate(targetDate);
-	}
 }

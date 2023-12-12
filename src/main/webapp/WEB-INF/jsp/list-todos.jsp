@@ -4,7 +4,6 @@
 <div class="container">
  <div>
   <a type="button" class="btn btn-primary btn-md" href="/add-todo">Añadir tarea</a>
-   <a type="button" class="btn btn-primary btn-md" href="/list-todosByDate">Ordenar tareas por fecha</a>
  </div>
  <br>
  <div class="panel panel-primary">

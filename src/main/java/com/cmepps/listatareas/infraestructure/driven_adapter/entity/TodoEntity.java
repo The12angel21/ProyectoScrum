@@ -20,7 +20,7 @@ public class TodoEntity {
     private String nombre;
     private String tipo;
     private String description;
-    private Date date;
+    private Date targetDate;
     private String asignatura;
     private String duracion;
     private String prioridad;
@@ -34,7 +34,7 @@ public class TodoEntity {
         super();
         this.userName = user;
         this.description = desc;
-        this.date = targetDate;
+        this.targetDate = targetDate;
         this.nombre = name;
         this.tipo = tip;
         this.asignatura = asig;
@@ -71,11 +71,11 @@ public class TodoEntity {
     }
 
     public Date getTargetDate() {
-        return date;
+        return targetDate;
     }
 
     public void setTargetDate(Date targetDate) {
-        this.date = targetDate;
+        this.targetDate = targetDate;
     }
 
 	public String getNombre() {
