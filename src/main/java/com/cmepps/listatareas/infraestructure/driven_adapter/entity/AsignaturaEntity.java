@@ -12,6 +12,10 @@ import javax.persistence.*;
 	    @Column(name = "nombre_asignatura")
 	    private String nombre;
 
+	    public AsignaturaEntity() {
+			super();
+		}
+	    
 		public AsignaturaEntity(String nombre) {
 			super();
 			this.nombre = nombre;
