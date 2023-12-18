@@ -18,7 +18,7 @@
      <th width="40%">Nombre</th>
       <th width="40%">Asignatura</th>
       <th width="40%">Tipo</th>
-      <th width="40%">Fecha</th>
+      <th width="30%">Fecha</th>
       <th width="40%">Duracion</th>
       <th width="40%">Descripcion</th>
       <th width="40%">Prioridad</th>
@@ -37,6 +37,7 @@
          <td>${todo.duracion}</td>
          <td>${todo.description}</td>
          <td>${todo.prioridad}</td>
+         <td>${todo.estado}</td>
         
        <td><a type="button" class="btn btn-success"
         href="/update-todo?id=${todo.id}">Editar</a>

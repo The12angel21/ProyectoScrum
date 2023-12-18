@@ -21,7 +21,7 @@ public class AsignaturaService implements IAsignaturaService{
     	  	@Override
     	    public boolean agregarAsignatura(String nombre) {
     	        if (asignaturaRepository.findByNombre(nombre).contains(nombre)) {
-    	            																	// La asignatura ya existe, mostrar mensaje de error o lanzar excepción
+    	        // La asignatura ya existe, mostrar mensaje de error o lanzar excepción
     	            return false;
     	       }
 

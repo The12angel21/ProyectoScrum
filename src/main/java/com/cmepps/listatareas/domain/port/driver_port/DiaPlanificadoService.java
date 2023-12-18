@@ -8,27 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.cmepps.listatareas.domain.model.Todo;
 import com.cmepps.listatareas.domain.port.driven_port.*;
-import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.DiaPlanificadoEntity;
 import com.cmepps.listatareas.infraestructure.driven_adapter.repository.TodoJpaRepository;
 
 
 
 @Service
-public class PlanificacionService implements IPlanificacionService{
+public class DiaPlanificadoService implements IDiaPlanificadoService{
+	
 	@Autowired
     private TodoJpaRepository tareaRepository;
 	
 	@Override
-    public List<TodoEntity> planificarTareas() {
-    	List<TodoEntity> Ordenado = null;
+    public List<DiaPlanificadoEntity> planificarTareas() {
+    	List<DiaPlanificadoEntity> Ordenado = null;
         // Lógica de planificación aquí (ordenar por fecha y prioridad)
         return Ordenado;
     }
 
-	@Override
-    public void manejarConflicto(Todo tareaNueva) {
-        // Lógica para manejar conflictos de horarios y prioridades
-        // Puedes preguntar al usuario cuál tarea mantener en caso de conflicto
-        // y ajustar las fechas o prioridades según sea necesario
-    }
 }
