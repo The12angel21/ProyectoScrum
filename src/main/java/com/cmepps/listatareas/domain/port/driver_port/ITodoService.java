@@ -28,6 +28,9 @@ public interface ITodoService {
 
 	void addTodo(String name, String desc, Date targetDate, boolean isDone, String nameasig, String tip, String asig,
 			String dur, String pri);
+
+	List<String> getAllAsignaturas();
+
 	
 	
 }

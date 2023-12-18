@@ -3,11 +3,14 @@ package com.cmepps.listatareas.domain.port.driver_port;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.AsignaturaEntity;
 import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
+import com.cmepps.listatareas.infraestructure.driven_adapter.repository.AsignaturaJpaRepository;
 import com.cmepps.listatareas.infraestructure.driven_adapter.repository.TodoJpaRepository;
 
 
@@ -17,6 +20,10 @@ public class TodoService implements ITodoService {
     @Autowired
     private TodoJpaRepository todoRepository;
 
+    @Autowired
+    private AsignaturaJpaRepository asignaturaRepository;
+    
+    
     @Override
     public List < TodoEntity > getTodosByUser(String user) {
         return todoRepository.findByUserName(user);
@@ -55,4 +62,12 @@ public class TodoService implements ITodoService {
 	public List<TodoEntity> getTodosByDate(Date targetDate) {
         return todoRepository.getTodosByDate(targetDate);
 	}
+    
+    @Override
+    public List<String> getAllAsignaturas(){
+    	List <AsignaturaEntity> asignaturaEntities = asignaturaRepository.findAll();
+    	List<String> asignaturas = asignaturaEntities.stream().map(AsignaturaEntity::getNombre).collect(Collectors.toList());
+    	
+    	return asignaturas;
+    }
 }

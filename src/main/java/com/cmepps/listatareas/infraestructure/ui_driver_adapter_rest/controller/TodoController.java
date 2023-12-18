@@ -2,6 +2,10 @@ package com.cmepps.listatareas.infraestructure.ui_driver_adapter_rest.controller
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cmepps.listatareas.domain.port.driver_port.ITodoService;
 import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
+
 
 /**
  * esta clase es un driver_Adapter
@@ -47,7 +52,12 @@ public class TodoController {
     @RequestMapping(value = "/list-todosByDate", method = RequestMethod.GET)
     public String showTodosByDate(ModelMap model) {
         String name = getLoggedInUserName(model);
-        model.put("todos", todoService.getTodosByUser(name));
+        List<TodoEntity> todosOrdenadas = todoService.getTodosByUser(name);
+        
+        //Ordenar la lista de tareas por fecha
+        Collections.sort(todosOrdenadas, Comparator.comparing(TodoEntity::getTargetDate));
+        
+        model.put("todos", todosOrdenadas);
         // model.put("todos", service.retrieveTodos(name));
         return "list-todosByDate";
     }
@@ -64,6 +74,9 @@ public class TodoController {
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
+    	List<String> asignaturas = todoService.getAllAsignaturas();
+    	System.out.println("ASIGNATURAS: " + asignaturas);
+    	model.addAttribute("asignaturas", asignaturas);
         model.addAttribute("todo", new TodoEntity());
         return "todo";
     }
@@ -87,6 +100,31 @@ public class TodoController {
         todoService.saveTodo(todo);
         return "redirect:/list-todos";
     }
+    
+    @RequestMapping(value = "/update-todo", method = RequestMethod.POST)
+    public String updateTodo(@RequestParam("id") long id, @Validated TodoEntity updateTodo, BindingResult result) {
+        if (result.hasErrors()) {
+            return "edit-todo";
+        }
+
+        Optional<TodoEntity> optionalExistingTodo = todoService.getTodoById(id);
+
+        if (optionalExistingTodo.isPresent()) {
+            TodoEntity existingTodo = optionalExistingTodo.get();
+            
+            // Actualizar los campos relevantes con la información del formulario
+            existingTodo.setDescription(updateTodo.getDescription());
+            existingTodo.setTargetDate(updateTodo.getTargetDate());
+
+            todoService.saveTodo(existingTodo);
+            return "redirect:/list-todos";
+        } else {
+            // Manejar el caso donde la tarea no existe
+            // Puedes lanzar una excepción, loggear un mensaje, etc.
+            return "error-page"; // Puedes redirigir a una página de error
+        }
+    }
+
     
 
 }

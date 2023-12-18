@@ -18,8 +18,10 @@
       
         <fieldset class="form-group">
        <form:label path="asignatura">Asignatura: </form:label>
-       <form:input path="asignatura" type="text" class="form-control"
-        required="required" />
+       <form:select path="asignatura" type="text" class="form-control" required="required">
+        <form:option value="Selecciona una asignatura"></form:option>
+        <form:options items = "${asignaturas}" />
+        </form:select>
        <form:errors path="asignatura" cssClass="text-warning" />
       </fieldset>
       
