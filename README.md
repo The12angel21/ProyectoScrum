@@ -1,6 +1,5 @@
 #Proyecto Scrum
 
 > .[!CAUTION].
-
-escribe aqui
+> escribe aqui
 
