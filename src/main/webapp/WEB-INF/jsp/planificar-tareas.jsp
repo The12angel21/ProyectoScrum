@@ -23,7 +23,6 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 08:00-10:00</label>
-							<form:label path="asignaturas">Asignatura: </form:label>
 							<form:select path="asignaturas" class="form-control"
 								required="required">
 								<form:option value="Selecciona una asignatura"></form:option>
@@ -37,7 +36,6 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 10:00-12:00</label>
-							<form:label path="asignaturas">Asignatura: </form:label>
 							<form:select path="asignaturas" class="form-control"
 								required="required">
 								<form:option value="Selecciona una asignatura"></form:option>
@@ -52,7 +50,6 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 12:00-14:00</label>
-							<form:label path="asignaturas">Asignatura: </form:label>
 							<form:select path="asignaturas" class="form-control"
 								required="required">
 								<form:option value="Selecciona una asignatura"></form:option>
@@ -67,7 +64,6 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 14:00-16:00</label>
-							<form:label path="asignaturas">Asignatura: </form:label>
 							<form:select path="asignaturas" class="form-control"
 								required="required">
 								<form:option value="Selecciona una asignatura"></form:option>
@@ -82,7 +78,6 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 16:00-18:00</label>
-							<form:label path="asignaturas">Asignatura: </form:label>
 							<form:select path="asignaturas" class="form-control"
 								required="required">
 								<form:option value="Selecciona una asignatura"></form:option>
@@ -97,7 +92,6 @@
 				<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 18:00-20:00</label>
-							<form:label path="asignaturas">Asignatura: </form:label>
 							<form:select path="asignaturas" class="form-control"
 								required="required">
 								<form:option value="Selecciona una asignatura"></form:option>
