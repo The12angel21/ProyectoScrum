@@ -1,4 +1,4 @@
-# Proyecto Scrum
+#Proyecto Scrum
 
 > .[!CAUTION].
 
