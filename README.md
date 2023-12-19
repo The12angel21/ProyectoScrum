@@ -10,6 +10,6 @@ Se ha diseñado un programa web, mediante metodlogía Scrum en java utilizando S
 > Al editar una tarea, hay que volver a seleccionar la fecha para evitar errores.
 
 > [!CAUTION]
-> No se ha diseñado un calendario mensual al final debido a los numeros problemas que ha proporcionado fullcalendar,
+> No se ha diseñado un calendario mensual al final debido a los numeros problemas que ha proporcionado fullcalendar(https://fullcalendar.io/docs/initialize-globals),
 >  he probado a instalarlo mediante archivo.zip, mediante dependencias de maven y mediante instalación cdn.
 > Por eso se ha optado finalmente a mostrar un calendario semanal. 
