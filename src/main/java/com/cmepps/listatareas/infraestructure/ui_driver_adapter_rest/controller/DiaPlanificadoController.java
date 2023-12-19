@@ -18,26 +18,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cmepps.listatareas.domain.model.Todo;
+import com.cmepps.listatareas.domain.port.driver_port.AsignaturaService;
 import com.cmepps.listatareas.domain.port.driver_port.DiaPlanificadoService;
+import com.cmepps.listatareas.domain.port.driver_port.TodoService;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.AsignaturaEntity;
 import com.cmepps.listatareas.infraestructure.driven_adapter.entity.DiaPlanificadoEntity;
-
-
 
 @Controller
 public class DiaPlanificadoController {
-	@Autowired
+    @Autowired
     private DiaPlanificadoService planiService;
+    @Autowired
+    private AsignaturaService asigService;
 
-	@RequestMapping(value = "/planificar-tareas", method = RequestMethod.POST)
+    @RequestMapping(value = "/planificar-tareas", method = RequestMethod.GET)
     public String planificarTareas(ModelMap model) {
-		
-        List<DiaPlanificadoEntity> tareasPlanificadas = planiService.planificarTareas();
-        model.addAttribute("tareas", tareasPlanificadas);
-        return "planificar-tareas"; // Página para visualizar tareas planificadas
+        List<AsignaturaEntity> tareasPlanificadas = asigService.obtenerTodasLasAsignaturas();
+        model.addAttribute("asignaturas", tareasPlanificadas); 
+        return "planificar-tareas";
     }
-	
+/*
     @RequestMapping(value = "/planificar-tareas", method = RequestMethod.GET)
     public String mostrarPlanificacionTareas() {
         return "planificar-tareas";
     }
+    */
 }
+
