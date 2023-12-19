@@ -18,11 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cmepps.listatareas.domain.model.Todo;
-import com.cmepps.listatareas.domain.port.driver_port.AsignaturaService;
-import com.cmepps.listatareas.domain.port.driver_port.DiaPlanificadoService;
-import com.cmepps.listatareas.domain.port.driver_port.TodoService;
-import com.cmepps.listatareas.infraestructure.driven_adapter.entity.AsignaturaEntity;
-import com.cmepps.listatareas.infraestructure.driven_adapter.entity.DiaPlanificadoEntity;
+import com.cmepps.listatareas.domain.port.driver_port.*;
+import com.cmepps.listatareas.infraestructure.driven_adapter.entity.*;
 
 @Controller
 public class DiaPlanificadoController {
@@ -30,13 +27,31 @@ public class DiaPlanificadoController {
     private DiaPlanificadoService planiService;
     @Autowired
     private AsignaturaService asigService;
-
+    @Autowired
+    private TodoService  todoService;
+    
+    
+    @RequestMapping(value = "/planificar-tareas", method = RequestMethod.GET)
+    public String planificarTareas(ModelMap model,Date targetDate) {
+        List<TodoEntity> todosPlanificadas = todoService.getTodosByDate(targetDate);
+        model.addAttribute("todos", todosPlanificadas); 
+        return "planificar-tareas";
+    }
+    
+    @RequestMapping(value = "/planificar-tareas-dia", method = RequestMethod.POST)
+    public String planificarTareasDia(ModelMap model,Date targetDate) {
+        List<TodoEntity> todosPlanificadas = todoService.getTodosByDate(targetDate);
+        model.addAttribute("todos", todosPlanificadas); 
+        return "planificar-tareas";
+    }
+    /*
     @RequestMapping(value = "/planificar-tareas", method = RequestMethod.GET)
     public String planificarTareas(ModelMap model) {
         List<AsignaturaEntity> tareasPlanificadas = asigService.obtenerTodasLasAsignaturas();
-        model.addAttribute("asignaturas", tareasPlanificadas); 
+        model.addAttribute("todos", tareasPlanificadas); 
         return "planificar-tareas";
     }
+    */
 /*
     @RequestMapping(value = "/planificar-tareas", method = RequestMethod.GET)
     public String mostrarPlanificacionTareas() {

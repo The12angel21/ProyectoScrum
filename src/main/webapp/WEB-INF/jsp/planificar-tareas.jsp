@@ -2,9 +2,9 @@
 <%@ include file="common/navigation.jspf"%>
 <div class="container">
 	<div>
-		<form action="/agregar-asignatura" method="post">
+		<form action="/planificar-tareas-dia" method="post">
 			<label for="nombre">Elige dia para planificar</label> <input
-				type="date" id="idF" name="dia" required>
+			 value="${todo.targetDate} "type="date" id="targetDate" name="targetDate" required>
 			<button class="btn btn-success" type="submit">Mostrar
 				planificacion</button>
 		</form>
@@ -12,9 +12,9 @@
 			<thead>
 			<tr>
 			<td>TAREAS: 
-			<c:forEach items="${asignaturas}" var="asig">
+			<c:forEach items="${todos}" var="todo">
 					<tr>
-						<td>${asig.nombre}</td>
+						<td>${todo.nombre}</td>
 					</tr>
 				</c:forEach>
 				</td>
@@ -23,12 +23,12 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 08:00-10:00</label>
-							<form:select path="asignaturas" class="form-control"
+							<form:select path="todos" class="form-control"
 								required="required">
-								<form:option value="Selecciona una asignatura"></form:option>
-								<form:options items="${asignaturas}" itemLabel="nombre" />
+								<form:option value="Selecciona una tarea"></form:option>
+								<form:options items="${todos}" itemLabel="nombre" />
 							</form:select>
-							<form:errors path="asignaturas" cssClass="text-warning" />
+							<form:errors path="todos" cssClass="text-warning" />
 						</fieldset>
 					</td>
 				<tr>
@@ -36,12 +36,12 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 10:00-12:00</label>
-							<form:select path="asignaturas" class="form-control"
+							<form:select path="todos" class="form-control"
 								required="required">
-								<form:option value="Selecciona una asignatura"></form:option>
-								<form:options items="${asignaturas}" itemLabel="nombre" />
+								<form:option value="Selecciona una tarea"></form:option>
+								<form:options items="${todos}" itemLabel="nombre" />
 							</form:select>
-							<form:errors path="asignaturas" cssClass="text-warning" />
+							<form:errors path="todos" cssClass="text-warning" />
 						</fieldset>
 					</td>
 				</tr>
@@ -50,12 +50,12 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 12:00-14:00</label>
-							<form:select path="asignaturas" class="form-control"
+							<form:select path="todos" class="form-control"
 								required="required">
-								<form:option value="Selecciona una asignatura"></form:option>
-								<form:options items="${asignaturas}" itemLabel="nombre" />
+								<form:option value="Selecciona una tarea"></form:option>
+								<form:options items="${todos}" itemLabel="nombre" />
 							</form:select>
-							<form:errors path="asignaturas" cssClass="text-warning" />
+							<form:errors path="todos" cssClass="text-warning" />
 						</fieldset>
 					</td>
 				</tr>
@@ -64,12 +64,12 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 14:00-16:00</label>
-							<form:select path="asignaturas" class="form-control"
+							<form:select path="todos" class="form-control"
 								required="required">
-								<form:option value="Selecciona una asignatura"></form:option>
-								<form:options items="${asignaturas}" itemLabel="nombre" />
+								<form:option value="Selecciona una tarea"></form:option>
+								<form:options items="${todos}" itemLabel="nombre" />
 							</form:select>
-							<form:errors path="asignaturas" cssClass="text-warning" />
+							<form:errors path="todos" cssClass="text-warning" />
 						</fieldset>
 					</td>
 				</tr>
@@ -78,12 +78,12 @@
 					<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 16:00-18:00</label>
-							<form:select path="asignaturas" class="form-control"
+							<form:select path="todos" class="form-control"
 								required="required">
-								<form:option value="Selecciona una asignatura"></form:option>
-								<form:options items="${asignaturas}" itemLabel="nombre" />
+								<form:option value="Selecciona una tarea"></form:option>
+								<form:options items="${todos}" itemLabel="nombre" />
 							</form:select>
-							<form:errors path="asignaturas" cssClass="text-warning" />
+							<form:errors path="todos" cssClass="text-warning" />
 						</fieldset>
 					</td>
 				</tr>
@@ -92,12 +92,12 @@
 				<td>
 						<fieldset class="form-group">
 							<label for="opciones">Tarea para 18:00-20:00</label>
-							<form:select path="asignaturas" class="form-control"
+							<form:select path="todos" class="form-control"
 								required="required">
-								<form:option value="Selecciona una asignatura"></form:option>
-								<form:options items="${asignaturas}" itemLabel="nombre" />
+								<form:option value="Selecciona una tarea"></form:option>
+								<form:options items="${todos}" itemLabel="nombre" />
 							</form:select>
-							<form:errors path="asignaturas" cssClass="text-warning" />
+							<form:errors path="todos" cssClass="text-warning" />
 						</fieldset>
 					</td>
 				</tr>
