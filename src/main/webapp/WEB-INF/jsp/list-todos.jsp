@@ -3,7 +3,7 @@
 
 <div class="container">
  <div>
-  <a type="button" class="btn btn-primary btn-md" href="/add-todo">Añadir tarea</a>
+  <a type="button" class="btn btn-primary btn-md" href="/add-todo">Aï¿½adir tarea</a>
  <a type="button" class="btn btn-primary btn-md" href="/list-todosByDate">Ordenar tareas por fecha</a>
  </div>
  <br>
@@ -40,7 +40,7 @@
          <td>${todo.estado}</td>
         
        <td><a type="button" class="btn btn-success"
-        href="/update-todo?id=${todo.id}">Editar</a>
+        href="/edit-todo?id=${todo.id}">Editar</a>
        <a type="button" class="btn btn-warning"
         href="/delete-todo?id=${todo.id}">Borrar</a></td>
       </tr>

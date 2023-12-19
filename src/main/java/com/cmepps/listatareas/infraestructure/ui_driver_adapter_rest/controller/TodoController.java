@@ -1,6 +1,6 @@
 package com.cmepps.listatareas.infraestructure.ui_driver_adapter_rest.controller;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,12 +16,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cmepps.listatareas.domain.port.driver_port.ITodoService;
+import com.cmepps.listatareas.infraestructure.driven_adapter.JpaTodoRepository;
 import com.cmepps.listatareas.infraestructure.driven_adapter.entity.TodoEntity;
 
 
@@ -101,30 +105,40 @@ public class TodoController {
         return "redirect:/list-todos";
     }
     
-    @RequestMapping(value = "/update-todo", method = RequestMethod.POST)
-    public String updateTodo(@RequestParam("id") long id, @Validated TodoEntity updateTodo, BindingResult result) {
-        if (result.hasErrors()) {
-            return "edit-todo";
-        }
+    @GetMapping("/edit-todo")
+    public String showEditTodo(@RequestParam long id, ModelMap model) {
+        Optional<TodoEntity> todo = todoService.getTodoById(id);
+        
+        // para que muestre las asginaturas del desplegable:
+        List<String> asignaturas = todoService.getAllAsignaturas();
+        model.addAttribute("asignaturas", asignaturas);
+        model.addAttribute("todo", todo.orElse(null));
 
-        Optional<TodoEntity> optionalExistingTodo = todoService.getTodoById(id);
+        return "edit-todo";
+    }
 
-        if (optionalExistingTodo.isPresent()) {
-            TodoEntity existingTodo = optionalExistingTodo.get();
-            
-            // Actualizar los campos relevantes con la información del formulario
-            existingTodo.setDescription(updateTodo.getDescription());
-            existingTodo.setTargetDate(updateTodo.getTargetDate());
+    @PostMapping("/update-todo")
+    public String updateTodo(@ModelAttribute("todo") TodoEntity updateTodo) {
+        // Lógica para actualizar la tarea con los datos proporcionados en el formulario
+        // Verifica si la tarea existe y actualiza sus campos con los valores del formulario
+        Optional<TodoEntity> todoOptional = todoService.getTodoById(updateTodo.getId());
 
-            todoService.saveTodo(existingTodo);
-            return "redirect:/list-todos";
+        if (todoOptional.isPresent()) {
+        	TodoEntity todo = todoOptional.get();
+        	// actualizamos los campos:
+        	todo.setNombre(updateTodo.getNombre());
+        	todo.setAsignatura(updateTodo.getAsignatura());
+        	todo.setTipo(updateTodo.getTipo());
+        	todo.setTargetDate(updateTodo.getTargetDate());
+        	todo.setDuracion(updateTodo.getDuracion());
+        	todo.setDescription(updateTodo.getDescription());
+        	todo.setPrioridad(updateTodo.getPrioridad());
+        	todoService.saveTodo(todo);
+        	return "redirect:/list-todos"; 
         } else {
             // Manejar el caso donde la tarea no existe
             // Puedes lanzar una excepción, loggear un mensaje, etc.
-            return "error-page"; // Puedes redirigir a una página de error
-        }
+            return "error"; // Puedes redirigir a una página de error
+        }        
     }
-
-    
-
-}
+}    
