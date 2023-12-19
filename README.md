@@ -4,10 +4,14 @@ Se ha diseñado un programa web, mediante metodlogía Scrum en java utilizando S
 > [!NOTE]
 > Para inciar sesion abrir el siguiente link: http://localhost:8087/login
 > usuario: admin
-> contraseña: admin
+> contraseña: admin 
 
 > [!WARNING]
 > Al editar una tarea, hay que volver a seleccionar la fecha para evitar errores.
+
+> [!WARNING]
+> Al clonar el repositorio o hacer un pull, hay que convertir el proyecto a maven.
+> Ademas han surgido problemas a veces debido a la version de java utilizada(JDK-17)
 
 > [!CAUTION]
 > No se ha diseñado un calendario mensual al final debido a los numeros problemas que ha proporcionado fullcalendar(https://fullcalendar.io/docs/initialize-globals),
