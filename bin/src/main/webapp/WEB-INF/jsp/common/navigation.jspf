@@ -8,6 +8,7 @@
           <li><a href="/list-todos">Tareas</a></li>
           <li><a href="/formulario-asignatura">Asignaturas</a></li>
           <li><a href="/calendar">Calendario</a></li>
+          <li><a href="/planificar-tareas">Mi horario</a></li>
      </ul>
      <ul class="nav navbar-nav navbar-right">
          <li><a href="/logout">Cerrar sesión</a></li>
