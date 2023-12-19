@@ -4,7 +4,7 @@
 	<div>
 		<form action="/planificar-tareas-dia" method="post">
 			<label for="nombre">Elige dia para planificar</label> <input
-			type="date" id="targetDate" name="targetDate" required>
+			type="date"  name="targetDate" required>
 			<button class="btn btn-success" type="submit">Mostrar
 				planificacion</button>
 			<label for="nombre">(Solo se muestran las tareas de ese dia)</label>
